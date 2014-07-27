@@ -39,3 +39,16 @@ print "steps: ", count_step(n, M)
 #       FOLLOW UP
 #       What if the values are not distinct?
 
+#Answer:
+#Just simple brute force (getting GIT ready and testing python)
+
+from array import *
+A = array("i", [1,2,3,4,5,6,7,8])
+i = 0
+for a in A:
+  if A[i]==a:
+    print "There exist at least this magic index: %s" %i
+  else:
+    i=i+1
+
+
