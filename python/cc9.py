@@ -1,7 +1,9 @@
 # Chapter 9| Recursion and Dynamic Programming
 
 # -----------------------------------------------------------------------------------------
+# Crackin the Code Interview. 5th Edition.
 # Interview Questions
+# Solutions
 # -----------------------------------------------------------------------------------------
 
 # 9.1   A child is running up a staircase with n steps, and can hop either 1 step, 2 steps,
@@ -19,12 +21,6 @@ def count_step(n, M):
         M[n] = count_step (n-3, M) + count_step (n-2, M) + count_step (n-1, M)
         return M[n]
 
-n = 4
-M = []
-M = [0 for x in range(n+1)]
-print "steps: ", count_step(n, M)
-
-
 # 9.2   Imagine a robot sitting on the upper left corner of an X by Y grid. The robot can
 #       only move in two directions: right and down. How many possible paths are there
 #       for the robot to go from (0,0) to (X,Y)?
@@ -32,6 +28,7 @@ print "steps: ", count_step(n, M)
 #       Imagine certain spots are "off limits", such that the robot cannot step on them.
 #       Design an algorithm to find a path for the robot from the top left to the bottom
 #       right.
+
 
 # 9.3   A magic index in an index A[0..n-1] is defined to be an index such that A[i]
 #       = i. Given a sorted array of distinct integers, write a method to find a magic
