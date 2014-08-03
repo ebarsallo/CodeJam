@@ -19,3 +19,10 @@
 #       Input: find 5 in {15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14}
 #       Output: 8 (the index of 5 in the array)
 
+# 11.5  Given a sorted array of strings which is interspersed with empty strings, write a
+#       method to find the location of a given string.
+#
+#       EXAMPLE:
+#       Input: find "ball" in {"at", "", "", "", "ball", "", "", "car",
+#                              "", "", "dad", "", ""}
+
