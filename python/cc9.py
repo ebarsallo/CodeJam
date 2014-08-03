@@ -1,4 +1,5 @@
 # Chapter 9| Recursion and Dynamic Programming
+from math import factorial
 
 # -----------------------------------------------------------------------------------------
 # Crackin the Code Interview. 5th Edition.
@@ -28,6 +29,43 @@ def count_step(n, M):
 #       Imagine certain spots are "off limits", such that the robot cannot step on them.
 #       Design an algorithm to find a path for the robot from the top left to the bottom
 #       right.
+
+# Path lenght: x + y, using combination formula the possible paths will follows the
+# diff possible combination of x or y given a (x + y).
+def robot(x, y):
+    return factorial (x + y) / factorial (x) / factorial (y)
+
+# FOLLOW UP:
+# Check if a specific cell (x,y) is free 
+def is_free_cell(x,y, BLQ):
+    if (x,y) in BLQ:
+        return False
+    else:
+        return True
+
+# We go from x,y to 0,0
+def robot_followup(x, y, path, M, BLQ):
+
+    p = (x,y)                               # Point
+    if p in M:                              # Memory (cache), p has been already visited
+        return M[p]
+    
+    if x == 0 and y == 0:                   # Path found!
+        return True
+
+    success = False
+    if x > 0 and is_free_cell (x-1,y, BLQ): # Go LEFT (in fact: RIGHT)
+        success = robot_followup (x-1, y, path, M, BLQ)
+
+    if not success:                         # Go UP   (in fact: DOWN)
+        if y > 0 and is_free_cell (x,y-1, BLQ):    
+            success = robot_followup (x, y-1, path, M, BLQ)
+
+    if success:                             # Add to path
+        path.append(p)
+
+    M[p] = success                          # Save result (success) in cache
+    return success
 
 
 # 9.3   A magic index in an index A[0..n-1] is defined to be an index such that A[i]
