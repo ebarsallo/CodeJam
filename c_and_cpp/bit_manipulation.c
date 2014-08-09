@@ -31,3 +31,13 @@ void displayBits(unsigned value){
   }//For
   putchar('\n');
 }//displayBits
+
+short getBit(unsigned value, unsigned i){
+  unsigned ret = 0;
+  if ((value & (1 << i)) != 0)
+    ret = 1;
+  
+  return ret;
+}
+
+
