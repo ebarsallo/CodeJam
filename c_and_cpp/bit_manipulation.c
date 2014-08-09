@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void displayBits(unsigned);
+short getBit(unsigned value, unsigned i);
 
 int main(){
   unsigned num = 960;
@@ -15,6 +16,13 @@ int main(){
   printf("8 bit position using the right shift operator >> is\n");
   displayBits(num>>8);
 
+  printf("Getting i Bit from value\n");
+  displayBits(num);
+  printf("8th bit position is: ");
+  if(getBit(num,8)==0)
+    printf("0\n");
+  else 
+    printf("1\n");
   return 0;
 }
 
