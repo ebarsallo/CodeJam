@@ -3,6 +3,9 @@
 
 void displayBits(unsigned);
 short getBit(unsigned value, unsigned i);
+unsigned setBit(unsigned value, unsigned i);
+unsigned clearBit(unsigned value, unsigned i);
+unsigned clearBitsMSBthrough0(unsigned value, unsigned i);
 
 int main(){
   unsigned num = 960;
@@ -23,6 +26,22 @@ int main(){
     printf("0\n");
   else 
     printf("1\n");
+
+  printf("Setting ith Bit to value\n");
+  displayBits(num);
+  printf("setting 5th bit is: ");
+  displayBits(setBit(num,5));
+
+  printf("Clearing ith Bit to value\n");
+  displayBits(num);
+  printf("Clearing 5th bit is: ");
+  displayBits(clearBit(num,5));
+
+  printf("Clearing all bits from the most sig bit through i\n");
+  displayBits(num);
+  printf("Clearing 8th bits is: ");
+  displayBits(clearBitsMSBthrough0(num,8));
+
   return 0;
 }
 
@@ -48,4 +67,15 @@ short getBit(unsigned value, unsigned i){
   return ret;
 }
 
+unsigned setBit(unsigned value, unsigned i){
+  return value | (1 << i);
+}
 
+unsigned clearBit(unsigned value, unsigned i){
+  return value & (~(1 << i));
+}
+
+unsigned clearBitsMSBthrough0(unsigned value, unsigned i){
+  unsigned mask = (1 << i) - 1;
+  return value & mask;
+}
