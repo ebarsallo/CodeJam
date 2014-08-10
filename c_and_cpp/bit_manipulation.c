@@ -6,6 +6,7 @@ short getBit(unsigned value, unsigned i);
 unsigned setBit(unsigned value, unsigned i);
 unsigned clearBit(unsigned value, unsigned i);
 unsigned clearBitsMSBthrough0(unsigned value, unsigned i);
+unsigned updateBit(unsigned value, unsigned i, unsigned v);
 
 int main(){
   unsigned num = 960;
@@ -61,7 +62,7 @@ void displayBits(unsigned value){
 
 short getBit(unsigned value, unsigned i){
   unsigned ret = 0;
-  if ((value & (1 << i)) != 0)
+  if ( (value & (1 << i)) != 0 )
     ret = 1;
   
   return ret;
@@ -78,4 +79,9 @@ unsigned clearBit(unsigned value, unsigned i){
 unsigned clearBitsMSBthrough0(unsigned value, unsigned i){
   unsigned mask = (1 << i) - 1;
   return value & mask;
+}
+
+unsigned updateBit(unsigned value, unsigned i, unsigned v){
+  unsigned mask = ~(1 << i);
+  return (value & mask) | (v << i);
 }
