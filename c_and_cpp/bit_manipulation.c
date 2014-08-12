@@ -1,4 +1,8 @@
-
+/************************************************************************/
+/* Cracking the Code Interview, Chapter 5, Examples			*/
+/* Date created: 2014.08.03 	         				*/
+/* File: bit_manipulation.c 						*/
+/************************************************************************/
 #include <stdio.h>
 
 void displayBits(unsigned);
@@ -46,6 +50,10 @@ int main(){
   return 0;
 }
 
+/************************************************************************/
+/* Displaying number in bit's format                                    */
+/************************************************************************/
+
 void displayBits(unsigned value){
   unsigned c, displayMask = 1 << 15;
   printf("%7u = ", value);
@@ -60,6 +68,10 @@ void displayBits(unsigned value){
   putchar('\n');
 }//displayBits
 
+/************************************************************************/
+/* Getting ith bit from unsigned number                                 */
+/************************************************************************/
+
 short getBit(unsigned value, unsigned i){
   unsigned ret = 0;
   if ( (value & (1 << i)) != 0 )
@@ -68,14 +80,25 @@ short getBit(unsigned value, unsigned i){
   return ret;
 }
 
+/************************************************************************/
+/* Setting ith bit from unsigned number                                 */
+/************************************************************************/
 unsigned setBit(unsigned value, unsigned i){
   return value | (1 << i);
 }
+
+/************************************************************************/
+/* Setting ith bit to zero                                              */
+/************************************************************************/
 
 unsigned clearBit(unsigned value, unsigned i){
   return value & (~(1 << i));
 }
 
+
+/************************************************************************/
+/* Clearing set of bits to zero                                         */
+/************************************************************************/
 unsigned clearBitsMSBthrough0(unsigned value, unsigned i){
   unsigned mask = (1 << i) - 1;
   return value & mask;
