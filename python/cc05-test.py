@@ -11,7 +11,7 @@ from cc05 import *
 
 class Chapter05Test(unittest.TestCase):
 
-# 9.1   Staircase.
+# 5.1   Insert N into M.
     
     def test_inserto(self):
         n = inserto(1024,19,2,6)
