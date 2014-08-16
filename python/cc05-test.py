@@ -17,5 +17,14 @@ class Chapter05Test(unittest.TestCase):
         n = inserto(1024,19,2,6)
         self.assertEqual(n, 1100)
 
+# 5.2   Display binaries.
+    
+    def test_displaybits(self):
+        self.assertEqual(displaybits(0), '0')
+        self.assertEqual(displaybits(1), 'ERROR')
+        self.assertEqual(displaybits(0.5), '.1')
+        self.assertEqual(displaybits(0.250), '.01')
+
+
 if __name__ == '__main__':
     unittest.main()

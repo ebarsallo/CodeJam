@@ -26,6 +26,30 @@ def inserto(N,M,i,j):
 #       print the binary representation if the number cannot be represented accurately
 #       in binary with at most 32 characters, print "ERROR".
 
+def displaybits(n):
+
+    # Sanity check
+    if n<0 or n>=1:
+        return 'ERROR'
+    
+    # Default case
+    if n==0:
+        return '0'
+
+    s = '.'
+    while n > 0:
+        n = n * 2
+
+        if n >= 1:
+            s = s + '1'
+            n = n - 1
+        else:
+            s = s + '0'
+            
+        if len(s)>32: return 'ERROR'
+
+    return s
+
 # 5.8   A monocrhome screen is stored as a single array of bytes, allowing eight 
 #       consecutive pixels to be stored in one byte. The screen has a width w, where w 
 #       is divisible by 8 (that is, no byte will be split across rows). The height of 
