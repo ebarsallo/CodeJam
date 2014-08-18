@@ -24,6 +24,7 @@ class Chapter05Test(unittest.TestCase):
         self.assertEqual(displaybits(1), 'ERROR')
         self.assertEqual(displaybits(0.5), '.1')
         self.assertEqual(displaybits(0.250), '.01')
+        self.assertEqual(displaybits(0.8125), '.1101')
 
 
 if __name__ == '__main__':
