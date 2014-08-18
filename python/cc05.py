@@ -36,6 +36,18 @@ def displaybits(n):
     if n==0:
         return '0'
 
+    # How to represent in binary?
+    # http://en.wikipedia.org/wiki/Double-precision_floating-point_format
+    # http://www.math-cs.gordon.edu/courses/cps111/Notes/Binary%20number%20system/bin9.htm
+    #
+    # Example
+    # 0.8125 => b0.1101
+    #  1 = 2^(-1) = 0.5
+    #  1 = 2^(-2) = 0.25
+    #  0 = 2^(-3) = 0
+    #  0 = 2^(-4) = 0.0625
+    # ---------------
+    #  0.5 + 0.25 + 0.0625 = 0.8125
     s = '.'
     while n > 0:
         n = n * 2
